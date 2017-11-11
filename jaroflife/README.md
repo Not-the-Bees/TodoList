@@ -2,6 +2,14 @@
 permalink: a-propos.html
 title: ma vie dans un bocal
 ---
+## Information
+
+Pour pouvoir utiliser cette Todo List, dans le dossier Model, créez un fichier config.php contenant vos informations dans le format suivant :
+$dbname = '';
+$host = '127.0.0.1';
+$user = '';
+$password = '';
+
 ## Description
 
 Ce projet propose une todo list améliorée, basée sur l'idée du "bocal de la vie" : chaque élément de la todo list est associé à un niveau de priorité, et, au moment de choisir une tâche à faire, l'utilisateur.rice se voit proposer en premier les tâches prioritaires.

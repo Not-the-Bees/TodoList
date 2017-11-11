@@ -2,10 +2,10 @@
 
 require __DIR__.'/Model/model.php';
 
-$todo = addOne($_POST['title'], $_POST['description']);
+$todo = addNewTask($_POST['title'], $_POST['description'], $_POST['user_id']);
 
 if ($todo) {
-	header('Location:index.php');
+	header('Location:browse.php');
 	exit;
 }
 

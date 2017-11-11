@@ -2,6 +2,9 @@
 
 require __DIR__.'/Model/model.php';
 
-$todo = getOne($_GET['id']);
+if (isset($_GET['id'])) {
+	$id = $_GET['id'];
+	$todo = readSelectedTask($id);
+}
 
 require __DIR__.'/View/readview.php';

@@ -1,5 +1,6 @@
  <?php
-function initDatabase() {
+ //Initialisation du PDO et récupération de la config
+function initializePdo() {
 	try {
 	  require __DIR__.'/config.php';
 
@@ -8,18 +9,15 @@ function initDatabase() {
 	  );
 	} catch (PDOException $e) {
 	  echo 'erreur : ' . $e->getMessage();
-
 	  $pdo = null;
 	}
-//les noms n'ont de valeur que dans la fonction où ils sont déclarés
 	return $pdo;
 }
 
-
+//Préparation de la requête SQL
 function prepareStatement($sql) {
 	$pdo_statement = null;
-
-	$pdo = initDatabase();
+	$pdo = initializePdo();
 
 	if ($pdo) {
 		try {
@@ -28,25 +26,22 @@ function prepareStatement($sql) {
 		  echo 'erreur : ' . $e->getMessage();
 		}
 	}
-//les noms n'ont de valeur que dans la fonction où ils sont déclarés
 	return $pdo_statement;
 }
 
-
-function getAll() {
+//Récupération de la liste des tâches
+function readAllExistingTasks() {
 	$todos = [];
-
 	$pdo_statement = prepareStatement('SELECT * FROM todos WHERE deleted_at IS NULL');
 
 	if ($pdo_statement && $pdo_statement->execute()) {
 		$todos = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
 	}
-
 	return $todos;
 }
 
-
-function getOne($id) {
+//Récupération d'une ligne de la liste des tâches
+function readSelectedTask($id) {
 	$todo = null;
 	$pdo_statement = prepareStatement('SELECT * FROM todos WHERE id=:id');
 
@@ -60,23 +55,24 @@ function getOne($id) {
   return $todo;
 }
 
-
-function addOne($title, $description) {
-	$pdo_statement = prepareStatement('INSERT INTO todos (title, description)' .
-  		'VALUES (:title, :description)');
+//Ajout d'une nouvelle ligne dans la liste des tâches
+function addNewTask($title, $description, $user_id) {
+	$pdo_statement = prepareStatement(
+		'INSERT INTO todos (title, description, user_id) VALUES (:title, :description, :user_id)');
 
 	if (
 	  $pdo_statement &&
 	  $pdo_statement->bindParam(':title', $title) &&
 	  $pdo_statement->bindParam(':description', $description) &&
+	  $pdo_statement->bindParam(':user_id', $user_id) &&
 	  $pdo_statement->execute()
 	 ) {
 	 	return $pdo_statement;
-      }  
+   }  
 }
 
-
-function deleteOne($id) {
+//Suppression d'une ligne de la liste des tâches
+function deleteSelectedTask($id) {
 	$pdo_statement = prepareStatement('UPDATE todos SET deleted_at = CURRENT_TIMESTAMP() WHERE id=:id');
 	if (
     !$pdo_statement ||
@@ -85,11 +81,10 @@ function deleteOne($id) {
   ) {
     return $pdo_statement;
   }
-
 }
 
-      
-function editOne($id, $title, $description) {
+//Modification d'une ligne de la liste des tâches      
+function editSelectedTask($id, $title, $description) {
 	$todo = null;
 	$pdo_statement = prepareStatement('UPDATE todos SET title=:title, description=:description WHERE id=:id');
 	if (
@@ -103,3 +98,5 @@ function editOne($id, $title, $description) {
 	  return $todo;
 	}
 }
+
+

@@ -2,17 +2,15 @@
 
 require __DIR__.'/Model/model.php';
 
-
 if (isset($_GET['id'])) {
 	$id = $_GET['id'];
 
-  if (deleteOne($id)) {
+  if (deleteSelectedTask($id)) {
   	header('Location:read.php?id=' . $id);
   	exit;
 	} else {
-		header('Location:index.php');
+		header('Location:browse.php');
 	}
 }
-
 
 require __DIR__.'/View/deleteview.php';

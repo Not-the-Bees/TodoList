@@ -9,13 +9,13 @@ if (isset($_GET['id'])) {
 		$title = $_POST['title'];
 		$description = $_POST['description'];
 		// si l'edit réussit,
-		if (editOne($id, $title, $description)) {
+		if (editSelectedTask($id, $title, $description)) {
 			// rediriger sur read
 			header('Location:read.php?id=' . $id);
 			// sinon,
 		} else {
 			// rediriger sur index
-		  header('Location:index.php');
+		  header('Location:browse.php');
 		}
 	}
 	// on récupère les données et on les traite
@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
 
 	// si le formulaire a été soumis,
 		 	// sinon,
-	$todo = getOne($id);
+	$todo = readSelectedTask($id);
 	
 	// on affiche le formulaire
 

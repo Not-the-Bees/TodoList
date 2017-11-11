@@ -1,22 +1,22 @@
-<!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <title>Supprimer une activité</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Formulaire d'identification</title>
   </head>
 
   <body class="container">
     <nav class="row">
-      <h1 class="title"><?php echo $todo['title']; ?></h1>
-      <p><?php echo $todo['description']; ?></p>
-      <ul>
-        <li><a href="add.php?id=<?php echo $todo['id']; ?>">modifier cette activité</a></li>
-        <li><a href="delete.php?id=<?php echo $todo['id']; ?>">supprimer cette activité</a></li>
-        <li><a href="browse.php">retour à votre liste</a></li>
-      </ul>
+      <h1 class="title">Todo List<h1>
+      <form action="login.php" method="post">
+      Votre login (nom d'utilisateur) : <input type="text" name="login">
+      <br />
+      Votre mot de passe : <input type="password" name="pwd"><br />
+      <input type="submit" value="Connexion">
+      </form>
     </nav>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

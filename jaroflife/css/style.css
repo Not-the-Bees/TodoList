@@ -1,0 +1,27 @@
+/*
+colors : 
+#ffd05b yellow
+#b04d5d red
+#f86254 orange
+#453246 black
+*/
+
+
+/* Contenu général */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* Style de classe */
+.title {
+	background-color: #97124b; 
+	color: #f86254;
+	border: 1px solid black;
+	border-radius: 10px;
+	text-align: center;
+}
+
