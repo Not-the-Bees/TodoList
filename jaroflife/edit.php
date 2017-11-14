@@ -9,13 +9,13 @@ if (isset($_GET['id'])) {
 		$title = $_POST['title'];
 		$description = $_POST['description'];
 
-		if (editSelectedTask($id, $title, $description)) {
+		if (editSelectedTask($id, $title, $description, $user_id)) {
 			header('Location:read.php?id=' . $id);
 		} else {
 		  header('Location:browse.php');
 		}
 	}
-	
+
 } else {
 	$todo = readSelectedTask($id);
 }

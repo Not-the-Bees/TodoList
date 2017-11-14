@@ -56,7 +56,7 @@ function readSelectedTask($id) {
 }
 
 //Ajout d'une nouvelle ligne dans la liste des tâches
-function addNewTask($title, $description, $user_id) {
+function addNewTask($title, $description, $userid) {
 	$pdo_statement = prepareStatement(
 		'INSERT INTO todos (title, description, userid) VALUES (:title, :description, :userid)');
 
@@ -82,6 +82,7 @@ function deleteSelectedTask($id) {
     return $pdo_statement;
   }
 }
+
 
 //Modification d'une activité de la liste des tâches ainsi que son niveau de priorité (WIP)   
 function editSelectedTask($id, $title, $description) {
