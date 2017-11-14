@@ -8,9 +8,9 @@
     <title>Ajouter une nouvelle activité</title>
   </head>
 
-  <body class="container">
+  <body class="container-fluid">
     <nav class= "row">
-      <h1 class="title">Ajoutez votre nouvelle activité</h1>
+      <h1 class="title col">Ajoutez votre nouvelle activité</h1>
       <!--<h1 class="title"><?php// echo $todo['title']; ?></h1>-->
       <!--<p><?php// echo $todo['description']; ?></p>-->
 
@@ -27,10 +27,6 @@
             <textarea name="description"></textarea>
           </label>
         </div>
-          <label>
-            Clé utilisateur :
-            <input type="int" name="user_id" value="">
-          </label>
         <div>
           <input type="submit" value="envoyer">
         </div>

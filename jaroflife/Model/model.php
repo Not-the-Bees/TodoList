@@ -58,13 +58,13 @@ function readSelectedTask($id) {
 //Ajout d'une nouvelle ligne dans la liste des tâches
 function addNewTask($title, $description, $user_id) {
 	$pdo_statement = prepareStatement(
-		'INSERT INTO todos (title, description, user_id) VALUES (:title, :description, :user_id)');
+		'INSERT INTO todos (title, description, userid) VALUES (:title, :description, :userid)');
 
 	if (
 	  $pdo_statement &&
 	  $pdo_statement->bindParam(':title', $title) &&
 	  $pdo_statement->bindParam(':description', $description) &&
-	  $pdo_statement->bindParam(':user_id', $user_id) &&
+	  $pdo_statement->bindParam(':userid', $userid) &&
 	  $pdo_statement->execute()
 	 ) {
 	 	return $pdo_statement;
@@ -83,7 +83,7 @@ function deleteSelectedTask($id) {
   }
 }
 
-//Modification d'une ligne de la liste des tâches      
+//Modification d'une activité de la liste des tâches ainsi que son niveau de priorité (WIP)   
 function editSelectedTask($id, $title, $description) {
 	$todo = null;
 	$pdo_statement = prepareStatement('UPDATE todos SET title=:title, description=:description WHERE id=:id');
@@ -98,5 +98,22 @@ function editSelectedTask($id, $title, $description) {
 	  return $todo;
 	}
 }
+/* pour l'ajout de piorité : 
+	-ajouter une variable $priority et la lier à la colonne priority_level de la BDD
+	-rajouter une limite dans les niveaux de priorité (allant de 1->plus haute à 5->plus basse)
+	-ajouter un code couleur via les alertes twitter bootstrap (1-> rouge, 5-> vert)
+*/
+//Rajout d'une fonction permettant d'accéder/voir les activités supprimées/terminées ?
 
 
+function connectMember($login, $password) {
+	
+	$pdo_statement = prepareStatement('SELECT * FROM user WHERE login = :login AND password = :password');
+
+	$pdo_statement->execute(array('login' => $login,
+    'password' => $password));
+
+	$result = $pdo_statement->fetch();
+
+	return $result;
+}

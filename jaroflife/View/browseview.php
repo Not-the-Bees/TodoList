@@ -9,9 +9,9 @@
     <title>Parcourir les activités</title>
   </head>
 
-  <body class="container">
+  <body class="container-fluid">
     <nav class="row">
-      <h1 class="title">Todo-list</h1>
+      <h1 class="title col">Todo-list</h1>
       <ul>
         <?php
           foreach ($todos as $ligne) {

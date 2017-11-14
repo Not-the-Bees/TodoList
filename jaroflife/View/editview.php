@@ -8,9 +8,9 @@
     <title>Modification de l'activité</title>
   </head>
 
-  <body class="container">
+  <body class="container-fluid">
     <nav class="row">
-      <h1 class="title">Modifier une activité</h1>
+      <h1 class="title col">Modifier une activité</h1>
        <form action="" method="post">
         <div>
           <label>

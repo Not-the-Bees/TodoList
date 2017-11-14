@@ -1,9 +1,9 @@
 /*
 colors : 
-#ffd05b yellow
-#b04d5d red
-#f86254 orange
-#453246 black
+#155263 bleu sombre
+#ff6f3c orange sombre
+#ff9a3c orange clair
+#ffc93c jaune
 */
 
 
@@ -16,7 +16,18 @@ li {
   list-style-type: none;
 }
 
-/* Style de classe */
+/* Bannière */
+.banner {
+	/*display: flex;*/
+	width: 100%;
+	height: 70px;
+	background-color: #ff6f3c;
+	color: #155263;
+	text-align: center;
+}
+
+
+/* Titre version 1 sans twitter bootstrap et sans bannière */ 
 .title {
 	background-color: #97124b; 
 	color: #f86254;
@@ -25,3 +36,6 @@ li {
 	text-align: center;
 }
 
+.background_color {
+	background-color: #155263;
+}

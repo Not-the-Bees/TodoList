@@ -8,9 +8,9 @@
     <title>Supprimer une activité</title>
   </head>
 
-  <body class="container">
+  <body class="container-fluid">
     <nav class="row">
-      <h1 class="title"><?php echo $todo['title']; ?></h1>
+      <h1 class="title col"><?php echo $todo['title']; ?></h1>
       <p><?php echo $todo['description']; ?></p>
       <ul>
         <li><a href="add.php?id=<?php echo $todo['id']; ?>">modifier cette activité</a></li>

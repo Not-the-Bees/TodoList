@@ -2,7 +2,7 @@
 permalink: a-propos.html
 title: ma vie dans un bocal
 ---
-## Information
+## Information Importante
 
 Pour pouvoir utiliser cette Todo List, dans le dossier Model, créez un fichier config.php contenant vos informations dans le format suivant :
 $dbname = '';
@@ -17,6 +17,10 @@ Ce projet propose une todo list améliorée, basée sur l'idée du "bocal de la 
 Ce principe du bocal est illustré dans le court-métrage "A Valuable Lesson For A Happier Life" :
 
 [![A Valuable Lesson For A Happier Life](https://img.youtube.com/vi/SqGRnlXplx0/0.jpg)](http://www.youtube.com/watch?v=SqGRnlXplx0)
+
+## Maquette
+
+Index : https://wireframe.cc/jJMk4v
 
 ## User stories
 
