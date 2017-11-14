@@ -1,12 +1,11 @@
 <?php
-
-require __DIR__.'/Model/model.php';
-
 session_start ();
 
 
-$todos = readAllExistingTasks();
+require __DIR__.'/Model/model.php';
 
+
+$todos = readAllExistingTasks($_SESSION['userid']);
 
 if (isset($_SESSION['login'], $_SESSION['pwd'])) {
 	echo 'Vous êtes connecté. Votre nom d\'utilisateur est '. $_SESSION['login'].'.';
@@ -14,6 +13,7 @@ if (isset($_SESSION['login'], $_SESSION['pwd'])) {
 	echo '<a href="./logout.php">Déconnection de la session</a>';
 	echo '<br />';
 } 
+
 else {
 	echo 'Merci de remplir les champs nom d\'utilisateur et mot de passe.';
 	echo '<br />';

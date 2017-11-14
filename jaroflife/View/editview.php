@@ -29,7 +29,7 @@
         </div>
       </form>
       <ul>
-        <!--<li><a href="read.php?id=<?php //echo $todo['id']; ?>">annuler</a></li>-->
+        <li><a href="read.php?id=<?php echo $todo['id']; ?>">annuler</a></li>
         <li><a href="browse.php">retour à la liste</a></li>
       </ul>
     </nav>

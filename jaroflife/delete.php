@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require __DIR__.'/Model/model.php';
 
 if (isset($_GET['id'])) {

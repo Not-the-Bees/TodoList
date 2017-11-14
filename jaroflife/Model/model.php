@@ -30,11 +30,13 @@ function prepareStatement($sql) {
 }
 
 //Récupération de la liste des tâches
-function readAllExistingTasks() {
+function readAllExistingTasks($userid) {
 	$todos = [];
-	$pdo_statement = prepareStatement('SELECT * FROM todos WHERE deleted_at IS NULL');
+	$pdo_statement = prepareStatement('SELECT * FROM todos WHERE deleted_at IS NULL AND userid=:userid');
 
-	if ($pdo_statement && $pdo_statement->execute()) {
+	if ($pdo_statement && 
+		$pdo_statement->bindParam(':userid', $userid, PDO::PARAM_INT) &&
+		$pdo_statement->execute()) {
 		$todos = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
 	}
 	return $todos;
