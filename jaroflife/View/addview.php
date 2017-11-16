@@ -11,7 +11,7 @@
   <body class="background_color">
     <section>
       <header class="banner">
-        <h1 class="title col">Ajoutez votre nouvelle activité</h1>
+        <h1 class="title">Ajoutez votre nouvelle activité</h1>
       </header>
       <!--<h1 class="title"><?php// echo $todo['title']; ?></h1>-->
       <!--<p><?php// echo $todo['description']; ?></p>-->

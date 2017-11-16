@@ -10,6 +10,11 @@ $host = '127.0.0.1';
 $user = '';
 $password = '';
 
+## Maquette
+
+Index : https://wireframe.cc/jJMk4v
+
+
 ## Description
 
 Ce projet propose une todo list améliorée, basée sur l'idée du "bocal de la vie" : chaque élément de la todo list est associé à un niveau de priorité, et, au moment de choisir une tâche à faire, l'utilisateur.rice se voit proposer en premier les tâches prioritaires.
@@ -17,10 +22,6 @@ Ce projet propose une todo list améliorée, basée sur l'idée du "bocal de la 
 Ce principe du bocal est illustré dans le court-métrage "A Valuable Lesson For A Happier Life" :
 
 [![A Valuable Lesson For A Happier Life](https://img.youtube.com/vi/SqGRnlXplx0/0.jpg)](http://www.youtube.com/watch?v=SqGRnlXplx0)
-
-## Maquette
-
-Index : https://wireframe.cc/jJMk4v
 
 ## User stories
 

@@ -1,6 +1,7 @@
  <?php
  //Initialisation du PDO et récupération de la config
 function initializePdo() {
+	
 	try {
 	  require __DIR__ . '/config.php';
 
@@ -16,6 +17,7 @@ function initializePdo() {
 
 //Préparation de la requête SQL
 function prepareStatement($sql) {
+	
 	$pdo_statement = null;
 	$pdo = initializePdo();
 
@@ -31,6 +33,7 @@ function prepareStatement($sql) {
 
 //Récupération de la liste des tâches
 function readAllExistingTasks($userid) {
+	
 	$todos = [];
 	$pdo_statement = prepareStatement('SELECT * FROM todos WHERE deleted_at IS NULL AND userid=:userid');
 
@@ -44,6 +47,7 @@ function readAllExistingTasks($userid) {
 
 //Récupération d'une ligne de la liste des tâches
 function readSelectedTask($id) {
+	
 	$todo = null;
 	$pdo_statement = prepareStatement('SELECT * FROM todos WHERE id=:id');
 
@@ -59,6 +63,7 @@ function readSelectedTask($id) {
 
 //Ajout d'une nouvelle ligne dans la liste des tâches et un niveau de priorité 
 function addNewTask($title, $description, $userid) {
+	
 	$pdo_statement = prepareStatement(
 		'INSERT INTO todos (title, description, userid) VALUES (:title, :description, :userid)');
 
@@ -75,7 +80,9 @@ function addNewTask($title, $description, $userid) {
 
 //Suppression d'une ligne de la liste des tâches
 function deleteSelectedTask($id) {
+	
 	$pdo_statement = prepareStatement('UPDATE todos SET deleted_at = CURRENT_TIMESTAMP() WHERE id=:id');
+	
 	if (
     !$pdo_statement ||
     !$pdo_statement->bindParam(':id', $id, PDO::PARAM_INT) ||
@@ -88,8 +95,10 @@ function deleteSelectedTask($id) {
 
 //Modification d'une activité de la liste des tâches ainsi que son niveau de priorité (WIP)   
 function editSelectedTask($id, $title, $description) {
+	
 	$todo = null;
 	$pdo_statement = prepareStatement('UPDATE todos SET title=:title, description=:description WHERE id=:id');
+
 	if (
 	  $pdo_statement &&
 	  $pdo_statement->bindParam(':id', $id, PDO::PARAM_INT) &&
@@ -101,22 +110,45 @@ function editSelectedTask($id, $title, $description) {
 	  return $todo;
 	}
 }
-/* pour l'ajout de piorité : 
-	-ajouter une variable $priority et la lier à la colonne priority_level de la BDD
-	-rajouter une limite dans les niveaux de priorité (allant de 1->plus haute à 5->plus basse)
-	-ajouter un code couleur via les alertes twitter bootstrap (1-> rouge,2-> orange, 3-> vert)
-*/
-//Rajout d'une fonction permettant d'accéder/voir les activités supprimées/terminées ?
 
 
 function connectMember($login, $password) {
 	
 	$pdo_statement = prepareStatement('SELECT * FROM user WHERE login=:login AND password=:password');
-
 	$pdo_statement->execute(array('login' => $login,
     'password' => $password));
 
 	$result = $pdo_statement->fetch();
 
 	return $result;
+}
+
+
+function createNewMember($login, $password, $email) {
+
+	$pdo_statement = prepareStatement('INSERT INTO user (login, password, email) VALUES (:login, :password, :email)');
+
+	if (
+  $pdo_statement &&
+  $pdo_statement->bindParam(':login', $login) &&
+  $pdo_statement->bindParam(':password', $password) &&
+  $pdo_statement->bindParam(':email', $email) &&
+  $pdo_statement->execute()
+ ) {
+ 	return $pdo_statement;
+ }
+}
+
+
+function deleteMember($userid) {
+
+	$pdo_statement = prepareStatement('DELETE FROM user WHERE userid=:userid');
+	
+	if (
+    $pdo_statement &&
+    $pdo_statement->bindParam(':userid', $userid, PDO::PARAM_INT) &&
+    $pdo_statement->execute()
+  ) {
+    return $pdo_statement;
+  }
 }
