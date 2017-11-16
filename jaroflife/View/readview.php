@@ -8,16 +8,18 @@
     <title>Informations sur l'activité</title>
   </head>
 
-  <body class="container-fluid">
-    <nav class="row">
-      <h1 class="title col"><?php echo $todo['title']; ?></h1>
-      <p><?php echo $todo['description']; ?></p>
-      <ul>
+  <body class="background_color">
+    <section>
+      <header class="banner">
+        <h1><?php echo $todo['title']; ?></h1>
+      </header>
+      <p class="font_color"><?php echo $todo['description']; ?></p>
+      <ul class="font_color">
         <li><a href="edit.php?id=<?php echo $todo['id']; ?>">modifier cette activité</a></li>
         <li><a href="delete.php?id=<?php echo $todo['id']; ?>">supprimer cette activité</a></li>
         <li><a href="browse.php">retour à la liste</a></li>
       </ul>
-    </nav>
+    </section>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>

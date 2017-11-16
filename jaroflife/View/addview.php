@@ -8,9 +8,11 @@
     <title>Ajouter une nouvelle activité</title>
   </head>
 
-  <body class="container-fluid">
-    <nav class= "row">
-      <h1 class="title col">Ajoutez votre nouvelle activité</h1>
+  <body class="background_color">
+    <section>
+      <header class="banner">
+        <h1 class="title col">Ajoutez votre nouvelle activité</h1>
+      </header>
       <!--<h1 class="title"><?php// echo $todo['title']; ?></h1>-->
       <!--<p><?php// echo $todo['description']; ?></p>-->
 
@@ -32,7 +34,7 @@
         </div>
       </form>
 
-      <ul>
+      <ul class="font_color">
         <li><a href="browse.php">retour à la liste</a></li>
       </ul>
   </section>

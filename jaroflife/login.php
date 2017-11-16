@@ -5,7 +5,6 @@ require __DIR__.'/Model/model.php';
 if (isset($_POST['login'], $_POST['pwd'])) {
 	$login_entered = htmlspecialchars($_POST['login']);
 	$password_entered = htmlspecialchars($_POST['pwd']);
-	//$userid = 1;
 	$user = connectMember($login_entered, $password_entered);
 
 

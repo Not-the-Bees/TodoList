@@ -8,9 +8,11 @@
     <title>Modification de l'activité</title>
   </head>
 
-  <body class="container-fluid">
-    <nav class="row">
-      <h1 class="title col">Modifier une activité</h1>
+  <body class="background_color">
+    <section>
+      <header class="banner">
+        <h1 class="title col">Modifier une activité</h1>
+      </header>
        <form action="" method="post">
         <div>
           <label>
@@ -28,7 +30,7 @@
           <input type="submit" value="envoyer">
         </div>
       </form>
-      <ul>
+      <ul class="font_color">
         <li><a href="read.php?id=<?php echo $todo['id']; ?>">annuler</a></li>
         <li><a href="browse.php">retour à la liste</a></li>
       </ul>

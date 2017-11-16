@@ -2,7 +2,7 @@
  //Initialisation du PDO et récupération de la config
 function initializePdo() {
 	try {
-	  require __DIR__.'/config.php';
+	  require __DIR__ . '/config.php';
 
 	  $pdo = new PDO(
 	    "mysql:dbname=$dbname;host=$host;charset=utf8", $user, $password
@@ -57,7 +57,7 @@ function readSelectedTask($id) {
   return $todo;
 }
 
-//Ajout d'une nouvelle ligne dans la liste des tâches
+//Ajout d'une nouvelle ligne dans la liste des tâches et un niveau de priorité 
 function addNewTask($title, $description, $userid) {
 	$pdo_statement = prepareStatement(
 		'INSERT INTO todos (title, description, userid) VALUES (:title, :description, :userid)');
@@ -104,14 +104,14 @@ function editSelectedTask($id, $title, $description) {
 /* pour l'ajout de piorité : 
 	-ajouter une variable $priority et la lier à la colonne priority_level de la BDD
 	-rajouter une limite dans les niveaux de priorité (allant de 1->plus haute à 5->plus basse)
-	-ajouter un code couleur via les alertes twitter bootstrap (1-> rouge, 5-> vert)
+	-ajouter un code couleur via les alertes twitter bootstrap (1-> rouge,2-> orange, 3-> vert)
 */
 //Rajout d'une fonction permettant d'accéder/voir les activités supprimées/terminées ?
 
 
 function connectMember($login, $password) {
 	
-	$pdo_statement = prepareStatement('SELECT * FROM user WHERE login = :login AND password = :password');
+	$pdo_statement = prepareStatement('SELECT * FROM user WHERE login=:login AND password=:password');
 
 	$pdo_statement->execute(array('login' => $login,
     'password' => $password));

@@ -8,17 +8,19 @@ require __DIR__.'/Model/model.php';
 $todos = readAllExistingTasks($_SESSION['userid']);
 
 if (isset($_SESSION['login'], $_SESSION['pwd'])) {
+	echo "<p class='font_color'>";
 	echo 'Vous êtes connecté. Votre nom d\'utilisateur est '. $_SESSION['login'].'.';
 	echo '<br />';
 	echo '<a href="./logout.php">Déconnection de la session</a>';
-	echo '<br />';
+	echo '</p>';
 } 
 
 else {
+	echo "<p class='font_color'>";
 	echo 'Merci de remplir les champs nom d\'utilisateur et mot de passe.';
 	echo '<br />';
 	echo '<a href="./index.html">Retour à l\'acceuil</a>';
-	echo '<br />';
+	echo '</p>';
 }
 
 require __DIR__.'/View/browseview.php';

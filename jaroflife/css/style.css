@@ -16,6 +16,22 @@ li {
   list-style-type: none;
 }
 
+label {
+	 color: #ffffff;
+}
+
+.font_color {
+	color: #ffffff;
+}
+
+.font_color a {
+	color: #ff9a3c;
+}
+
+.font_color a:hover {
+	color: #ff6f3c;
+}
+
 /* Bannière */
 .banner {
 	/*display: flex;*/
@@ -23,16 +39,6 @@ li {
 	height: 70px;
 	background-color: #ff6f3c;
 	color: #155263;
-	text-align: center;
-}
-
-
-/* Titre version 1 sans twitter bootstrap et sans bannière */ 
-.title {
-	background-color: #97124b; 
-	color: #f86254;
-	border: 1px solid black;
-	border-radius: 10px;
 	text-align: center;
 }
 
