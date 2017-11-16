@@ -13,26 +13,25 @@
       <header class="banner">
         <h1 class="title">Ajoutez votre nouvelle activité</h1>
       </header>
-      <!--<h1 class="title"><?php// echo $todo['title']; ?></h1>-->
-      <!--<p><?php// echo $todo['description']; ?></p>-->
-
-      <form action="" method="post">
-        <div>
-          <label>
-            Titre de l'activité :
-            <input type="text" name="title" value="">
-          </label>
-        </div>
-        <div>
-          <label>
-            Description de l'activité :
-            <textarea name="description"></textarea>
-          </label>
-        </div>
-        <div>
-          <input type="submit" value="envoyer">
-        </div>
-      </form>
+      <section>
+        <form action="add.php" method="post">
+          <div>
+            <label>
+              Titre de l'activité :
+              <input type="text" name="title" value="">
+            </label>
+          </div>
+          <div>
+            <label>
+              Description de l'activité :
+              <textarea name="description"></textarea>
+            </label>
+          </div>
+          <div>
+            <input type="submit" value="envoyer">
+          </div>
+        </form>
+      </section>
 
       <ul class="font_color">
         <li><a href="browse.php">retour à la liste</a></li>

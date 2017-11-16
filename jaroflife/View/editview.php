@@ -11,7 +11,7 @@
   <body class="background_color">
     <section>
       <header class="banner">
-        <h1 class="title col">Modifier une activité</h1>
+        <h1 class="title">Modifier une activité</h1>
       </header>
        <form action="" method="post">
         <div>
@@ -23,7 +23,8 @@
         <div>
           <label>
             Description de l'activité:
-            <textarea name="description"<?php echo $todo['description']; ?>></textarea>
+            <textarea name="description"><?php echo $todo['description']; ?>
+            </textarea>
           </label>
         </div>
         <div>
